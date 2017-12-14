@@ -83,6 +83,26 @@ Search :
    }
 
 
+
+
+
+
+Search as array in Where :
+
+	$color_array = array();
+	foreach($color as $value) {
+		$color_array[] = $value->ecom_products_id;
+	}
+
+	// fetch data as array
+
+	$ecom_product_color= ecom_product::whereIn('id', $color_array)->get();
+
+
+
+
+
+
 --------------------------------
 
 
