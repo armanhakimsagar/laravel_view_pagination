@@ -67,7 +67,21 @@ VIEW :
 
 Search :
 
-$search = ecom_product::where('sub_category', 'LIKE', "%$s%")->get();
+   public function search(){
+
+   	  $s = $_GET['search'];
+
+      $search = ecom_product::where('sub_category', 'LIKE', "%$s%")->limit(9)->get();
+
+      if($search->isEmpty()){
+      	$search_null = "nothing found";
+      	return view('single',compact('search_null'));
+   	  }else{
+   	  	return view('single',compact('search'));
+   	  }
+
+   }
+
 
 --------------------------------
 
